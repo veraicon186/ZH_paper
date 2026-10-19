@@ -113,12 +113,6 @@
       z-index: 1;
     }
 
-    /* Odlesky */
-    #rive-shine {
-      z-index: 2;
-      pointer-events: none;
-    }
-
     /* Text pod animací */
     .text-content {
       width: 100%;
@@ -154,10 +148,9 @@
 <body>
   <main>
 
-    <!-- Animace Henryho a odlesků -->
+    <!-- Animace Henryho -->
     <div id="rive-container">
       <canvas id="rive-main"></canvas>
-      <canvas id="rive-shine"></canvas>
     </div>
 
     <!-- Text -->
@@ -185,18 +178,9 @@
       onLoad: () => main.resizeDrawingSurfaceToCanvas()
     });
 
-    // Animace odlesků
-    const shine = new rive.Rive({
-      src: "./shine.riv",
-      canvas: document.getElementById("rive-shine"),
-      autoplay: true,
-      onLoad: () => shine.resizeDrawingSurfaceToCanvas()
-    });
-
     // Přizpůsobení při změně velikosti okna
     window.addEventListener("resize", () => {
       main.resizeDrawingSurfaceToCanvas();
-      shine.resizeDrawingSurfaceToCanvas();
     });
   </script>
 </body>
